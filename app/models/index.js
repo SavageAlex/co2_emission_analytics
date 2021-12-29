@@ -19,6 +19,7 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
-db.emissionAnalytics = require("./co2_emission_analytics.model")(sequelize, Sequelize)
+db.shipments = require("./Shipments.model.js")(sequelize, Sequelize)
+// db.emissions = require("./Emissions.model.js")(sequelize, Sequelize)
 
 module.exports = db
