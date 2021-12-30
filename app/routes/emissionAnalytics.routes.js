@@ -4,7 +4,7 @@ module.exports = app => {
     var router = require("express").Router()
 
     router.get("/shipments/", co2EmissionAnalytics.findAllByDate)
-    router.get("/emission/", co2EmissionAnalytics.findByShipmentId)
+    // router.get("/emission/", co2EmissionAnalytics.findByShipmentId)
 
     app.use('/api/analytics', router)
 }
