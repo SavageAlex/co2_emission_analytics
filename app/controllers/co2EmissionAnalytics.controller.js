@@ -8,7 +8,6 @@ const Op = db.Sequelize.Op
 exports.findAllByDate = (req, res) => {
     const startDate = req.query.startDate
     const endDate = req.query.endDate
-    console.log(`startDate is: ${startDate}, endDate is: ${endDate}`)
     Shipments.findAll({
         where: {
             dropoff_time: {[Op.between]: [startDate, endDate]}

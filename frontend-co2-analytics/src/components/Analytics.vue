@@ -3,22 +3,26 @@
     <h1 class="text-center">Analytics</h1>
     <div class="row">
       <div class="col p-3 mx-auto">
-          <Datepicker
-            v-model="dates"
-            @update:modelValue="fetchData"
-            :enableTimePicker="false"
-            :monthChangeOnScroll="false"
-            twoCalendars
-            twoCalendarsSolo
-            range
-            placeholder="Pick 'Drop Off' Date Range"
-          />
+        <Datepicker
+          v-model="dates"
+          @update:modelValue="fetchData"
+          :enableTimePicker="false"
+          :monthChangeOnScroll="false"
+          twoCalendars
+          twoCalendarsSolo
+          range
+          placeholder="Pick 'Drop Off' Date Range"
+        />
       </div>
     </div>
 
     <div class="row">
       <div class="col p-3 mx-auto">
-        <AnalyticsTable :analytics="analytics" :key="componentKey" />
+        <AnalyticsTable
+          :loading="loading"
+          :analytics="analytics"
+          :key="componentKey"
+        />
       </div>
     </div>
   </div>
@@ -40,18 +44,22 @@ export default {
       analytics: [],
       dates: [],
       componentKey: 0,
+      loading: false,
     };
   },
   methods: {
     fetchData() {
+      this.loading = true;
       var params = { startDate: this.dates[0], endDate: this.dates[1] };
       AnalyticsDataService.findAllByDate(params)
         .then((response) => {
           this.componentKey += 1;
           this.analytics = response.data;
+          this.loading = false;
         })
         .catch((e) => {
           console.log(e);
+          this.loading = false;
         });
     },
   },
