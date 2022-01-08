@@ -9,7 +9,7 @@ Database setup file
 ```
 Install modules
 ```
-npm install
+npm ci
 ```
 For run server
 ```
@@ -23,7 +23,7 @@ App directory
 ```
 Install modules
 ```
-npm install
+npm ci
 ```
 For run app
 ```
