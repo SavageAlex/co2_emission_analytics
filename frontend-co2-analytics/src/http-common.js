@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export default axios.create({
-    baseURL: "http://localhost:8080/api/analytics",
+    baseURL: "http://localhost:8080/api/co2_analytics",
     headers: {
         "Content-type": "application/json"
     }

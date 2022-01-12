@@ -6,5 +6,5 @@ module.exports = app => {
     router.get("/shipments/", co2EmissionAnalytics.findAllByDate)
     // router.get("/emission/", co2EmissionAnalytics.findByShipmentId)
 
-    app.use('/api/analytics', router)
+    app.use('/api/co2_analytics', router)
 }
